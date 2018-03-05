@@ -1,7 +1,5 @@
 # FinalProject
 Implementation of a Jenkins Branch recognition plugin. 
-Temp
 
-This is my test-Ryan
-This is my test- Rashad
-
+Wiki:
+https://1drv.ms/w/s!As-c5E3Mo2B_h81WbHNwY14jmZPxyw
