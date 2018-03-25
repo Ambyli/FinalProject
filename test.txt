@@ -1,1 +1,2 @@
 This is a test to make sure auto-building is working.
+It should now be functional.
