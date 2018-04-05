@@ -1,5 +1,4 @@
-
-package io.jenkins.plugins.sample;
+package io.jenkins.plugins; //changes io.jenkins.plugins.sample to io.jenkins.plugins for correct directory
 
 import hudson.Launcher;
 import hudson.Extension;
@@ -19,7 +18,7 @@ import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundSetter;
 
-public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
+public class Brancher extends Builder implements SimpleBuildStep {
 
     private final String name;
     private boolean useFrench;
