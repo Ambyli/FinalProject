@@ -21,20 +21,24 @@ import jenkins.tasks.SimpleBuildStep;
 
 public class Branch extends Builder implements SimpleBuildStep {
 
-    private final String name;
-
-    @DataBoundConstructor
-    public Branch(String name) {
-        this.name = name;
+    private String runCommand;
+    
+    public Branch() {
+    	this.runCommand = "git checkout master"; //default branch is usually master
     }
 
-    public String getName() {
-        return name;
+    @DataBoundConstructor
+    public Branch(String runCommand) {
+        this.runCommand = runCommand;
+    }
+
+    public String getCommand() {
+        return runCommand;
     }
 
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
     	Runtime rt = Runtime.getRuntime();
-       	Process pr = rt.exec("git checkout name"); //pr doesnt need to be used so ignore warning
+       	Process pr = rt.exec(runCommand); //pr doesnt need to be used so ignore warning
     }
 }
