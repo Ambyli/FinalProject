@@ -25,7 +25,7 @@ public class Branch extends Builder implements SimpleBuildStep {
     private String runCommand;
     
     public Branch() {
-    	this.runCommand = "git checkout master"; //default branch is usually master
+    	this.runCommand = "git checkout test"; //default branch is usually master
     }
 
     @DataBoundConstructor
