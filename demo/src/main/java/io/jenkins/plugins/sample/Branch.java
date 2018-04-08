@@ -29,7 +29,7 @@ public class Branch extends Builder implements SimpleBuildStep {
 
     @DataBoundConstructor
     public Branch(String runCommand) {
-        this.runCommand = runCommand;
+        this.runCommand = "git checkout " + runCommand;
     }
 
     public String getCommand() {
