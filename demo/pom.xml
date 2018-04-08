@@ -21,8 +21,6 @@
           ~ stapler-plugin.version: The Stapler Maven plugin version required by the plugin.
      -->
     </properties>
-    <name>TODO Plugin</name>
-    <description>TODO</description>
     <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for the applicable one if needed. -->
     <licenses>
         <license>
@@ -109,4 +107,7 @@
             <url>https://repo.jenkins-ci.org/public/</url>
         </pluginRepository>
     </pluginRepositories>
+    <name>Simple Branch Plugin</name>
+    <url>https://github.com/BlakePrice/FinalProject</url>
+    <description>A simple plugin that implements alternate branch building.</description>
 </project>

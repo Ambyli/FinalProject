@@ -16,16 +16,16 @@ public class BranchAction implements Action {
     
     @Override
     public String getIconFileName() {
-        return null;
+        return null; //predefined icon bundled with jenkins
     }
 
     @Override
     public String getDisplayName() {
-        return null;
+        return "Branches"; //This is the label used for the side panel
     }
 
     @Override
     public String getUrlName() {
-        return null;
+        return "branches"; //this is the URL fragment used for this action
     }
 }
