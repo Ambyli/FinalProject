@@ -39,6 +39,7 @@ public class Branch extends Builder implements SimpleBuildStep {
 
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
+    	run.addAction(new BranchAction(runCommand));
     	Runtime rt = Runtime.getRuntime();
        	Process pr = rt.exec(runCommand); //pr doesnt need to be used so ignore warning
     }
