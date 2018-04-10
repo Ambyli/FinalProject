@@ -32,7 +32,7 @@ public class BranchAction implements RunAction2 {
     
     @Override
     public String getIconFileName() {
-        return null; //predefined icon bundled with jenkins
+        return "document.png"; //predefined icon bundled with jenkins
     }
 
     @Override
