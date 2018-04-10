@@ -26,91 +26,91 @@ public class Messages {
     private final static ResourceBundleHolder holder = ResourceBundleHolder.get(Messages.class);
 
     /**
-     * Key {@code HelloWorldBuilder.DescriptorImpl.DisplayName}: {@code Say
-     * hello world}.
+     * Key {@code BranchBuilder.DescriptorImpl.warnings.reallyFrench}: {@code
+     * Are you actually French?}.
+     * 
+     * @return
+     *     {@code Are you actually French?}
+     */
+    public static String BranchBuilder_DescriptorImpl_warnings_reallyFrench() {
+        return holder.format("BranchBuilder.DescriptorImpl.warnings.reallyFrench");
+    }
+
+    /**
+     * Key {@code BranchBuilder.DescriptorImpl.warnings.reallyFrench}: {@code
+     * Are you actually French?}.
+     * 
+     * @return
+     *     {@code Are you actually French?}
+     */
+    public static Localizable _BranchBuilder_DescriptorImpl_warnings_reallyFrench() {
+        return new Localizable(holder, "BranchBuilder.DescriptorImpl.warnings.reallyFrench");
+    }
+
+    /**
+     * Key {@code BranchBuilder.DescriptorImpl.errors.missingName}: {@code
+     * Please set a name}.
+     * 
+     * @return
+     *     {@code Please set a name}
+     */
+    public static String BranchBuilder_DescriptorImpl_errors_missingName() {
+        return holder.format("BranchBuilder.DescriptorImpl.errors.missingName");
+    }
+
+    /**
+     * Key {@code BranchBuilder.DescriptorImpl.errors.missingName}: {@code
+     * Please set a name}.
+     * 
+     * @return
+     *     {@code Please set a name}
+     */
+    public static Localizable _BranchBuilder_DescriptorImpl_errors_missingName() {
+        return new Localizable(holder, "BranchBuilder.DescriptorImpl.errors.missingName");
+    }
+
+    /**
+     * Key {@code BranchBuilder.DescriptorImpl.DisplayName}: {@code Say hello
+     * world}.
      * 
      * @return
      *     {@code Say hello world}
      */
-    public static String HelloWorldBuilder_DescriptorImpl_DisplayName() {
-        return holder.format("HelloWorldBuilder.DescriptorImpl.DisplayName");
+    public static String BranchBuilder_DescriptorImpl_DisplayName() {
+        return holder.format("BranchBuilder.DescriptorImpl.DisplayName");
     }
 
     /**
-     * Key {@code HelloWorldBuilder.DescriptorImpl.DisplayName}: {@code Say
-     * hello world}.
+     * Key {@code BranchBuilder.DescriptorImpl.DisplayName}: {@code Say hello
+     * world}.
      * 
      * @return
      *     {@code Say hello world}
      */
-    public static Localizable _HelloWorldBuilder_DescriptorImpl_DisplayName() {
-        return new Localizable(holder, "HelloWorldBuilder.DescriptorImpl.DisplayName");
+    public static Localizable _BranchBuilder_DescriptorImpl_DisplayName() {
+        return new Localizable(holder, "BranchBuilder.DescriptorImpl.DisplayName");
     }
 
     /**
-     * Key {@code HelloWorldBuilder.DescriptorImpl.warnings.tooShort}: {@code
+     * Key {@code BranchBuilder.DescriptorImpl.warnings.tooShort}: {@code
      * Isn't the name too short?}.
      * 
      * @return
      *     {@code Isn't the name too short?}
      */
-    public static String HelloWorldBuilder_DescriptorImpl_warnings_tooShort() {
-        return holder.format("HelloWorldBuilder.DescriptorImpl.warnings.tooShort");
+    public static String BranchBuilder_DescriptorImpl_warnings_tooShort() {
+        return holder.format("BranchBuilder.DescriptorImpl.warnings.tooShort");
     }
 
     /**
-     * Key {@code HelloWorldBuilder.DescriptorImpl.warnings.tooShort}: {@code
+     * Key {@code BranchBuilder.DescriptorImpl.warnings.tooShort}: {@code
      * Isn't the name too short?}.
      * 
      * @return
      *     {@code Isn't the name too short?}
      */
-    public static Localizable _HelloWorldBuilder_DescriptorImpl_warnings_tooShort() {
-        return new Localizable(holder, "HelloWorldBuilder.DescriptorImpl.warnings.tooShort");
-    }
-
-    /**
-     * Key {@code HelloWorldBuilder.DescriptorImpl.warnings.reallyFrench}:
-     * {@code Are you actually French?}.
-     * 
-     * @return
-     *     {@code Are you actually French?}
-     */
-    public static String HelloWorldBuilder_DescriptorImpl_warnings_reallyFrench() {
-        return holder.format("HelloWorldBuilder.DescriptorImpl.warnings.reallyFrench");
-    }
-
-    /**
-     * Key {@code HelloWorldBuilder.DescriptorImpl.warnings.reallyFrench}:
-     * {@code Are you actually French?}.
-     * 
-     * @return
-     *     {@code Are you actually French?}
-     */
-    public static Localizable _HelloWorldBuilder_DescriptorImpl_warnings_reallyFrench() {
-        return new Localizable(holder, "HelloWorldBuilder.DescriptorImpl.warnings.reallyFrench");
-    }
-
-    /**
-     * Key {@code HelloWorldBuilder.DescriptorImpl.errors.missingName}:
-     * {@code Please set a name}.
-     * 
-     * @return
-     *     {@code Please set a name}
-     */
-    public static String HelloWorldBuilder_DescriptorImpl_errors_missingName() {
-        return holder.format("HelloWorldBuilder.DescriptorImpl.errors.missingName");
-    }
-
-    /**
-     * Key {@code HelloWorldBuilder.DescriptorImpl.errors.missingName}:
-     * {@code Please set a name}.
-     * 
-     * @return
-     *     {@code Please set a name}
-     */
-    public static Localizable _HelloWorldBuilder_DescriptorImpl_errors_missingName() {
-        return new Localizable(holder, "HelloWorldBuilder.DescriptorImpl.errors.missingName");
+    public static Localizable _BranchBuilder_DescriptorImpl_warnings_tooShort() {
+        return new Localizable(holder, "BranchBuilder.DescriptorImpl.warnings.tooShort");
     }
 
 }
