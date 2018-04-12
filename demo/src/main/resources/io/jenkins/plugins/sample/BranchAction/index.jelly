@@ -1,5 +1,5 @@
 <?jelly escape-by-default='true'?>
-<:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+<j:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
 	<l:layout title="Branches">
 		<l:main-panel>
 			<h1>
