@@ -23,19 +23,26 @@ import java.io.InputStream;
 
 public class Branch extends Builder implements SimpleBuildStep {
 
+	private String branch;
     private String runCommand;
     
     public Branch() {
-    	this.runCommand = "git checkout master"; //default branch is usually master
+    	this.branch = "master"; //default branch is usually master
+    	this.runCommand = "git checkout" + branch;
     }
 
     @DataBoundConstructor
-    public Branch(String runCommand) {
-        this.runCommand = "git checkout " + runCommand;
+    public Branch(String branch) {
+        this.branch = branch;
+        this.runCommand = "git checkout" + branch;
     }
 
     public String getCommand() {
         return runCommand;
+    }
+    
+    public String getBranch() {
+    	return branch;
     }
     
     public String execBranchSearch() throws IOException {
@@ -53,7 +60,7 @@ public class Branch extends Builder implements SimpleBuildStep {
 
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-    	run.addAction(new BranchAction("Current Branch: " + runCommand));
+    	run.addAction(new BranchAction("Current Branch: " + branch));
     	Runtime rt = Runtime.getRuntime();
        	Process pr = rt.exec(runCommand); //pr doesnt need to be used so ignore warning
     }
