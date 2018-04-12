@@ -6,7 +6,7 @@ import jenkins.model.RunAction2;
 public class BranchAction implements RunAction2 {
 	
 	private String name;
-	private transient Run run; 
+	private transient Run<?, ?> run; 
 
     @Override
     public void onAttached(Run<?, ?> run) {
@@ -18,7 +18,7 @@ public class BranchAction implements RunAction2 {
         this.run = run; 
     }
 
-    public Run getRun() { 
+    public Run<?, ?> getRun() { 
         return run;
     }
 

@@ -19,6 +19,7 @@ import java.io.IOException;
 import jenkins.tasks.SimpleBuildStep;
 //import org.jenkinsci.Symbol;
 //import org.kohsuke.stapler.DataBoundSetter;
+import java.io.InputStream;
 
 public class Branch extends Builder implements SimpleBuildStep {
 
@@ -35,6 +36,19 @@ public class Branch extends Builder implements SimpleBuildStep {
 
     public String getCommand() {
         return runCommand;
+    }
+    
+    public String execBranchSearch() throws IOException {
+    	String command = "git branches -a";
+		Process child = Runtime.getRuntime().exec(command);
+    	InputStream in = child.getInputStream();
+    	/*int c;
+    	while((c = in.read()) != -1)
+    	{
+    		System.out.println((char) c);
+    	}*/
+    	in.close();
+    	return null;
     }
 
     @Override
