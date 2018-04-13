@@ -1,0 +1,28 @@
+=== Starting testBuild(io.jenkins.plugins.sample.HelloWorldBuilderTest)
+   0.058 [id=60]	INFO	o.jvnet.hudson.test.JenkinsRule#createWebServer: Running on http://localhost:46781/jenkins/
+   0.099 [id=66]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+   0.107 [id=66]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+   0.330 [id=66]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+   0.332 [id=67]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+   0.335 [id=69]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+   0.622 [id=68]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+  62.293 [id=66]	INFO	o.j.main.modules.sshd.SSHD#start: Started SSHD at port 43695
+  62.294 [id=67]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+  62.593 [id=70]	INFO	hudson.model.Run#execute: test0 #1 main build action completed: SUCCESS
+  62.715 [id=60]	INFO	jenkins.model.Jenkins#cleanUp: Stopping Jenkins
+  62.724 [id=60]	INFO	jenkins.model.Jenkins$21#onAttained: Started termination
+  62.725 [id=60]	INFO	jenkins.model.Jenkins$21#onAttained: Completed termination
+  62.725 [id=60]	INFO	jenkins.model.Jenkins#_cleanUpDisconnectComputers: Starting node disconnection
+  62.738 [id=92]	INFO	h.TcpSlaveAgentListener$ConnectionHandler#run: Accepted connection #2 from /128.163.143.159:42928
+  62.739 [id=60]	INFO	jenkins.model.Jenkins#_cleanUpShutdownPluginManager: Stopping plugin manager
+  62.740 [id=60]	INFO	jenkins.model.Jenkins#_cleanUpPersistQueue: Persisting build queue
+  62.742 [id=60]	INFO	jenkins.model.Jenkins#_cleanUpAwaitDisconnects: Waiting for node disconnection completion
+  62.742 [id=60]	INFO	jenkins.model.Jenkins#cleanUp: Jenkins stopped
+=== Starting testConfigRoundtrip(io.jenkins.plugins.sample.HelloWorldBuilderTest)
+   0.050 [id=93]	INFO	o.jvnet.hudson.test.JenkinsRule#createWebServer: Running on http://localhost:41111/jenkins/
+   0.073 [id=99]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+   0.086 [id=100]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+   0.262 [id=100]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+   0.264 [id=102]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+   0.269 [id=99]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+   0.491 [id=99]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs

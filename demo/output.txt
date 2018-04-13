@@ -1,5 +1,0 @@
-* master
-  test
-  remotes/origin/HEAD -> origin/master
-  remotes/origin/master
-  remotes/origin/test
