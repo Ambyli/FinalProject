@@ -1,10 +1,16 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
 	<l:layout title="Branches">
+		<l:side-panel>
+			<st:include page="sidepanel.jelly" it="${it.run}" optional="true" />
+		</l:side-panel>
 		<l:main-panel>
 			<h1>
 				Name: ${it.name}
 			</h1>
 		</l:main-panel>
+		<f:entry title="$(%Branch:)" field="branchSwap">
+			<f:textbox />
+		</f:entry>
 	</l:layout>
 </j:jelly>

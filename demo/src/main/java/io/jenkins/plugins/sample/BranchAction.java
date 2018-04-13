@@ -2,12 +2,11 @@ package io.jenkins.plugins.sample;
 
 import hudson.model.Run;
 import jenkins.model.RunAction2;
-import hudson.model.Action;
 
-public class BranchAction implements Action {
+public class BranchAction implements RunAction2 {
 	
 	private String name;
-	/*private transient Run run; 
+	private transient Run run; 
 
     @Override
     public void onAttached(Run<?, ?> run) {
@@ -21,7 +20,7 @@ public class BranchAction implements Action {
 
     public Run getRun() { 
         return run;
-    }*/
+    }
 
     public BranchAction(String name) {
         this.name = name;
