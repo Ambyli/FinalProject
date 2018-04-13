@@ -16,16 +16,16 @@ public class HelloWorldAction implements Action {
 
     @Override
     public String getIconFileName() {
-        return null;
+        return "document.png";
     }
 
     @Override
     public String getDisplayName() {
-        return null;
+        return "Greeting";
     }
 
     @Override
     public String getUrlName() {
-        return null;
+        return "greeting";
     }
 }
