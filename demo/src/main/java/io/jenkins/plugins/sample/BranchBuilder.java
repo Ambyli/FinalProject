@@ -72,11 +72,11 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
         public FormValidation doCheckName(@QueryParameter String value, @QueryParameter boolean useFrench)
                 throws IOException, ServletException {
             if (value.length() == 0)
-                return FormValidation.error(Messages.HelloWorldBuilder_DescriptorImpl_errors_missingName());
+                return FormValidation.error(Messages._BranchBuilder_DescriptorImpl_errors_missingName());
             if (value.length() < 4)
-                return FormValidation.warning(Messages.HelloWorldBuilder_DescriptorImpl_warnings_tooShort());
+                return FormValidation.warning(Messages._BranchBuilder_DescriptorImpl_warnings_tooShort());
             if (!useFrench && value.matches(".*[éáàç].*")) {
-                return FormValidation.warning(Messages.HelloWorldBuilder_DescriptorImpl_warnings_reallyFrench());
+                return FormValidation.warning(Messages._BranchBuilder_DescriptorImpl_warnings_reallyFrench());
             }
             return FormValidation.ok();
         }
@@ -88,7 +88,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
 
         @Override
         public String getDisplayName() {
-            return Messages.HelloWorldBuilder_DescriptorImpl_DisplayName();
+            return Messages._BranchBuilder_DescriptorImpl_DisplayName();
         }
 
     }
