@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+    Adds the option of swapping branches for simple multi-branch building.
+</div>
