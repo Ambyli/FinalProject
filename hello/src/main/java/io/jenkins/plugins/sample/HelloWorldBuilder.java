@@ -27,7 +27,6 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     private String runCommand; //holds the command for swapping branch of workspace
     
     //default constructor
-    @DataBoundConstructor
     public HelloWorldBuilder() {
     	this.branch = "master"; //default branch is usually master
     	this.runCommand = "git checkout" + branch;
