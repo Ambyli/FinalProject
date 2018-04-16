@@ -6,7 +6,7 @@
         </l:side-panel>
         <l:main-panel> 
             <h1> 
-                Branch: ${it.name} 
+                Name: ${it.name} 
             </h1>
         </l:main-panel>
     </l:layout>

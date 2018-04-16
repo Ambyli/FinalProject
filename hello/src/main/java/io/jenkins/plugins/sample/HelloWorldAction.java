@@ -43,6 +43,6 @@ public class HelloWorldAction implements RunAction2 {
 
     @Override
     public String getUrlName() {
-        return "greetings";
+        return "branches";
     }
 }
