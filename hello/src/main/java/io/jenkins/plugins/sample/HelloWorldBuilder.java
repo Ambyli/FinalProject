@@ -22,20 +22,20 @@ import org.kohsuke.stapler.DataBoundSetter;
 
 public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
-    private final String branch; //holds the branch of workspace
-    private String branchList; //holds the list of branches a workspace has
+    private String branch = "master"; //holds the branch of workspace
     private String runCommand; //holds the command for swapping branch of workspace
+    private HelloWorldAction Use = new HelloWorldAction(branch);
     
     //default constructor
-    public HelloWorldBuilder() {
+    /*public HelloWorldBuilder() {
     	this.branch = "master"; //default branch is usually master
     	this.runCommand = "git checkout" + branch;
-    }
+    }*/
 
     //custom constructor
     @DataBoundConstructor
     public HelloWorldBuilder(String branch) {
-    	this.branch = branch;
+    	this.branch = "master";
         this.runCommand = "git checkout" + branch;
     }
 
@@ -66,7 +66,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     //this function creates an instance in the build cycle
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-    	run.addAction(new HelloWorldAction(branch));
+    	run.addAction(Use);
         Runtime rt = Runtime.getRuntime();
         Process pr = rt.exec("git checkout test"); //pr doesnt need to be used so ignore warning
     }
