@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-    TODO
+    Adds the option of swapping branches for simple multi-branch building.
 </div>
