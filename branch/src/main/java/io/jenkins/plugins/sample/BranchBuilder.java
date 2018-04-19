@@ -39,7 +39,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     public int makeBranchScript() throws FileNotFoundException, UnsupportedEncodingException {
     	//this function will make
     	String script = "git checkout " + name;
-    	PrintWriter writer = new PrintWriter("~/.jenkins/script.sh", "UTF-8");
+    	PrintWriter writer = new PrintWriter("script.sh", "UTF-8");
     	writer.println(script);
     	writer.close();
     	return 0;
@@ -47,7 +47,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     
     public int executeBranchScript() throws IOException, InterruptedException {
     	//this function will execute the script makeBranchScript() made
-    	ProcessBuilder pb = new ProcessBuilder("~/.jenkins/script.sh");
+    	ProcessBuilder pb = new ProcessBuilder("script.sh");
     	Process p = pb.start();
     	p.waitFor();
     	return 0;
