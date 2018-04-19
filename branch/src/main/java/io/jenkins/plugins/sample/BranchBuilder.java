@@ -13,7 +13,12 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 
 import javax.servlet.ServletException;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
 import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundSetter;
@@ -30,11 +35,29 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     public String getName() {
         return name;
     }
+    
+    public int makeBranchScript() throws FileNotFoundException, UnsupportedEncodingException {
+    	//this function will make
+    	String script = "git checkout " + name;
+    	PrintWriter writer = new PrintWriter("~/.jenkins/script.sh", "UTF-8");
+    	writer.println(script);
+    	writer.close();
+    	return 0;
+    }
+    
+    public int executeBranchScript() throws IOException, InterruptedException {
+    	//this function will execute the script makeBranchScript() made
+    	ProcessBuilder pb = new ProcessBuilder("~/.jenkins/script.sh");
+    	Process p = pb.start();
+    	p.waitFor();
+    	return 0;
+    }
 
    
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-      
+    	makeBranchScript();
+    	executeBranchScript();
     }
 
     @Symbol("greet")
@@ -45,7 +68,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
                 throws IOException, ServletException {
             if (value.length() == 0)
                 return FormValidation.error(Messages.BranchBuilder_DescriptorImpl_errors_missingName());
-            if (value.length() < 4)
+            if (value.length() < 1)
                 return FormValidation.warning(Messages.BranchBuilder_DescriptorImpl_warnings_tooShort());
             return FormValidation.ok();
         }
