@@ -41,14 +41,14 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     }
     
     public int makeBranchScript() throws IOException {
-    	//this function will make
+    	/*//this function will make
     	String script = "git checkout " + name;
     	String fileName = "script.sh";
     	File f = new File(fileName);
     	//String path = f.getAbsolutePath();
     	PrintWriter writer = new PrintWriter(new FileWriter(f));
         writer.write(script, 0, script.length());
-        writer.close();
+        writer.close();*/
     	return 0;
     }
     
@@ -71,7 +71,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     @Extension
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
 
-        public FormValidation doCheckName(@QueryParameter String value)
+        public FormValidation doCheckName(@QueryParameter String value)	
                 throws IOException, ServletException {
             if (value.length() == 0)
                 return FormValidation.error(Messages.BranchBuilder_DescriptorImpl_errors_missingName());
