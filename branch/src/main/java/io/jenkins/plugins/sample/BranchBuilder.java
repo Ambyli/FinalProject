@@ -14,10 +14,14 @@ import org.kohsuke.stapler.QueryParameter;
 
 import javax.servlet.ServletException;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
 
 import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.Symbol;
@@ -36,18 +40,21 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
         return name;
     }
     
-    public int makeBranchScript() throws FileNotFoundException, UnsupportedEncodingException {
+    public int makeBranchScript() throws IOException {
     	//this function will make
     	String script = "git checkout " + name;
-    	PrintWriter writer = new PrintWriter("script.sh", "UTF-8");
-    	writer.println(script);
-    	writer.close();
+    	String fileName = "script.sh";
+    	File f = new File(fileName);
+    	String path = f.getAbsolutePath();
+    	PrintWriter writer = new PrintWriter(new FileWriter(f));
+        writer.write(script, 0, script.length());
+        writer.close();
     	return 0;
     }
     
     public int executeBranchScript() throws IOException, InterruptedException {
     	//this function will execute the script makeBranchScript() made
-    	ProcessBuilder pb = new ProcessBuilder("script.sh");
+    	ProcessBuilder pb = new ProcessBuilder("git checkout" + name);
     	Process p = pb.start();
     	p.waitFor();
     	return 0;
