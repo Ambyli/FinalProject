@@ -1,10 +1,15 @@
 package io.jenkins.plugins.sample;
 
 import hudson.Launcher;
+import hudson.Launcher.ProcStarter;
+import hudson.Proc;
 import hudson.Extension;
 import hudson.FilePath;
+import hudson.util.ArgumentListBuilder;
 import hudson.util.FormValidation;
+import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
+import hudson.model.BuildListener;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.Builder;
@@ -40,6 +45,25 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
         return name;
     }
     
+    @SuppressWarnings("null")
+	public int pushCommand() throws IOException, InterruptedException {
+    	Launcher launcher = null;
+    	AbstractBuild<?, ?> build = null;
+    	BuildListener listener = null;
+    	
+    	ArgumentListBuilder command = new ArgumentListBuilder("git checkout" + name);
+    	command.addTokenized("xcopy /?");
+    	
+    	ProcStarter ps = launcher.new ProcStarter();
+    	ps = ps.cmds(command).stdout(listener);
+    	ps = ps.pwd(build.getWorkspace()).envs(build.getEnvironment(listener));
+    	@SuppressWarnings("null")
+		Proc proc = launcher.launch(ps);
+    	int retcode = proc.join();
+    	
+		return retcode;
+    }
+    
     public int makeBranchScript() throws IOException {
     	/*//this function will make
     	String script = "git checkout " + name;
@@ -65,6 +89,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
     	//makeBranchScript();
     	executeBranchScript();
+    	pushCommand();
     }
 
     @Symbol("greet")
