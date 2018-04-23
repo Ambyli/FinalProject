@@ -63,8 +63,8 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
    
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-    	makeBranchScript();
-    	//executeBranchScript();
+    	//makeBranchScript();
+    	executeBranchScript();
     }
 
     @Symbol("greet")
