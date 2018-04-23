@@ -45,7 +45,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     	String script = "git checkout " + name;
     	String fileName = "script.sh";
     	File f = new File(fileName);
-    	String path = f.getAbsolutePath();
+    	//String path = f.getAbsolutePath();
     	PrintWriter writer = new PrintWriter(new FileWriter(f));
         writer.write(script, 0, script.length());
         writer.close();
