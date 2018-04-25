@@ -9,6 +9,7 @@ import hudson.util.ArgumentListBuilder;
 import hudson.util.FormValidation;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
+import hudson.model.Build;
 import hudson.model.BuildListener;
 import hudson.model.Run;
 import hudson.model.TaskListener;
@@ -19,22 +20,24 @@ import org.kohsuke.stapler.QueryParameter;
 
 import javax.servlet.ServletException;
 
-//import java.io.BufferedWriter;
-//import java.io.File;
-//import java.io.FileNotFoundException;
-//import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
-//import java.io.PrintWriter;
-//import java.io.UnsupportedEncodingException;
-//import java.nio.file.Files;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.nio.file.Files;
 
 import jenkins.tasks.SimpleBuildStep;
 import org.jenkinsci.Symbol;
-//import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.DataBoundSetter;
 
 public class BranchBuilder extends Builder implements SimpleBuildStep {
 
     private final String name;
+    private Builder build;
 
     @DataBoundConstructor
     public BranchBuilder(String name) {
@@ -61,18 +64,6 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     	int retcode = proc.join();
     	
 		return retcode;
-    }
-    
-    public int makeBranchScript() throws IOException {
-    	/*//this function will make
-    	String script = "git checkout " + name;
-    	String fileName = "script.sh";
-    	File f = new File(fileName);
-    	//String path = f.getAbsolutePath();
-    	PrintWriter writer = new PrintWriter(new FileWriter(f));
-        writer.write(script, 0, script.length());
-        writer.close();*/
-    	return 0;
     }
     
     public int executeBranchScript() throws IOException, InterruptedException {
