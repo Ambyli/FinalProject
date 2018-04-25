@@ -39,15 +39,21 @@ import org.kohsuke.stapler.DataBoundSetter;
 public class BranchBuilder extends Builder implements SimpleBuildStep {
 
     private final String name;
+    private final String directory;
     private Builder build;
 
     @DataBoundConstructor
-    public BranchBuilder(String name) {
+    public BranchBuilder(String name, String directory) {
         this.name = name;
+        this.directory = "~/.jenkins/" + directory;
     }
 
     public String getName() {
         return name;
+    }
+    
+    public String getDirectory() {
+    	return directory;
     }
     
     @SuppressWarnings("null")
@@ -68,11 +74,11 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
 		return retcode;
     }
     
-    public int executeBranchScript(String path, TaskListener listener) throws IOException, InterruptedException {
+    public int executeBranchScript(TaskListener listener) throws IOException, InterruptedException {
     	//this function will execute the script makeBranchScript() made
-    	ProcessBuilder pb = new ProcessBuilder("git checkout" + name);
+    	ProcessBuilder pb = new ProcessBuilder("bin/sh", "-c", "cd", directory, ";", "git", "checkout", name);
     	Process p = pb.start();
-    	//p.waitFor();
+    	p.waitFor();
     	BufferedReader buffer = new BufferedReader(new InputStreamReader(p.getErrorStream()));
     	String line;
     	while((line = buffer.readLine()) != null)
@@ -82,8 +88,6 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     	
     	listener.getLogger().println("Exit");
     	
-    	
-    	
     	return 0;
     }
 
@@ -91,7 +95,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
     	//makeBranchScript();
-    	executeBranchScript(workspace.getName(), listener);
+    	executeBranchScript(listener);
     	//pushCommand();
     }
 
