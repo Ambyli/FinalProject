@@ -20,11 +20,13 @@ import org.kohsuke.stapler.QueryParameter;
 
 import javax.servlet.ServletException;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
@@ -66,11 +68,22 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
 		return retcode;
     }
     
-    public int executeBranchScript() throws IOException, InterruptedException {
+    public int executeBranchScript(String path, TaskListener listener) throws IOException, InterruptedException {
     	//this function will execute the script makeBranchScript() made
     	ProcessBuilder pb = new ProcessBuilder("git checkout" + name);
     	Process p = pb.start();
-    	p.waitFor();
+    	//p.waitFor();
+    	BufferedReader buffer = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+    	String line;
+    	while((line = buffer.readLine()) != null)
+    	{
+    		listener.getLogger().println(line);
+    	}
+    	
+    	listener.getLogger().println("Exit");
+    	
+    	
+    	
     	return 0;
     }
 
@@ -78,8 +91,8 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
     	//makeBranchScript();
-    	executeBranchScript();
-    	pushCommand();
+    	executeBranchScript(workspace.getName(), listener);
+    	//pushCommand();
     }
 
     @Symbol("greet")
