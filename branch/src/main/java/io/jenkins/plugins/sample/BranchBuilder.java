@@ -75,7 +75,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     
     public int executeBranchScript(TaskListener listener) throws IOException, InterruptedException {
     	//this function will execute the script makeBranchScript() made
-    	ProcessBuilder pb = new ProcessBuilder("/usr/bin/sh", "-c", "cd", directory, ";", "git", "checkout", name);
+    	ProcessBuilder pb = new ProcessBuilder("~/../../bin/sh", "-c", "cd", directory, ";", "git", "checkout", name);
     	Process p = pb.start();
     	p.waitFor();
     	BufferedReader buffer = new BufferedReader(new InputStreamReader(p.getErrorStream()));
@@ -93,8 +93,8 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
    
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-    	executeBranchScript(listener);
     	listener.getLogger().println(run.getDisplayName());
+    	executeBranchScript(listener);
     }
 
     @Symbol("greet")
