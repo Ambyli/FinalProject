@@ -45,7 +45,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     @DataBoundConstructor
     public BranchBuilder(String name, String directory) {
         this.name = name;
-        this.directory = "~/.jenkins/" + directory;
+        this.directory = directory;
     }
 
     public String getName() {
@@ -76,7 +76,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     
     public int executeBranchScript(TaskListener listener) throws IOException, InterruptedException {
     	//this function will execute the script makeBranchScript() made
-    	ProcessBuilder pb = new ProcessBuilder("bin/sh", "-c", "cd", directory, ";", "git", "checkout", name);
+    	ProcessBuilder pb = new ProcessBuilder("#!/bin/sh", "-c", "cd", directory, ";", "git", "checkout", name);
     	Process p = pb.start();
     	p.waitFor();
     	BufferedReader buffer = new BufferedReader(new InputStreamReader(p.getErrorStream()));
@@ -94,9 +94,8 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
    
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-    	//makeBranchScript();
     	executeBranchScript(listener);
-    	//pushCommand();
+    	listener.getLogger().println(run.getDisplayName());
     }
 
     @Symbol("greet")
