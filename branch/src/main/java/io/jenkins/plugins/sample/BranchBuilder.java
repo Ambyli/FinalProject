@@ -40,7 +40,6 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
 
     private final String name;
     private final String directory;
-    private Builder build;
 
     @DataBoundConstructor
     public BranchBuilder(String name, String directory) {
@@ -76,7 +75,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     
     public int executeBranchScript(TaskListener listener) throws IOException, InterruptedException {
     	//this function will execute the script makeBranchScript() made
-    	ProcessBuilder pb = new ProcessBuilder("#!/bin/sh", "-c", "cd", directory, ";", "git", "checkout", name);
+    	ProcessBuilder pb = new ProcessBuilder("/usr/bin/sh", "-c", "cd", directory, ";", "git", "checkout", name);
     	Process p = pb.start();
     	p.waitFor();
     	BufferedReader buffer = new BufferedReader(new InputStreamReader(p.getErrorStream()));
