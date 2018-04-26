@@ -85,7 +85,7 @@ public class BranchBuilder extends Builder implements SimpleBuildStep {
     		listener.getLogger().println(line);
     	}
     	
-    	listener.getLogger().println("Exit");
+    	listener.getLogger().println("Swapped to branch: " + name);
     	
     	return 0;
     }
