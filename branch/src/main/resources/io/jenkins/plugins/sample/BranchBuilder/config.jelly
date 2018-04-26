@@ -3,4 +3,7 @@
     <f:entry title="${%Name}" field="name">
         <f:textbox />
     </f:entry>
+    <f:entry title="${%Specify Directory}" field="directory">
+        <f:textbox />
+    </f:entry>
 </j:jelly>
